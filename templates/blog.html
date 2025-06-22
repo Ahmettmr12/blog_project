@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>2FA Blog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            color: #333;
+        }
+        .post .author {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>2FA Blog</h1>
+    {% for post in posts %}
+        <div class="post">
+           <h2>
+  <a href="{{ url_for('post_detail', post_id=post['id']) }}">
+    {{ post['title'] }}
+  </a>
+</h2>
+
+            <div class="author">Yazar: {{ post['author'] }} | Tarih: {{ post['created_at'] }}</div>
+            <p>{{ post['content'] }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

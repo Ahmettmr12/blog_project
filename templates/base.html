@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Sitesi</title>
+</head>
+<body>
+    <header>
+        <h1>2FA Blog</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Anasayfa</a> |
+            {% if 'user_id' in session %}
+                <a href="{{ url_for('dashboard') }}">Panel</a> |
+                <a href="{{ url_for('logout') }}">Çıkış</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Giriş</a> |
+                <a href="{{ url_for('register') }}">Kayıt</a>
+            {% endif %}
+        </nav>
+    </header>
+    <hr>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

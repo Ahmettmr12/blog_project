@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş Yap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 1em;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        .message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Giriş</h1>
+    <form method="POST">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="password">Şifre:</label>
+        <input type="password" name="password" required>
+
+        <input type="submit" value="Giriş Yap">
+    </form>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <p>Hesabın yok mu? <a href="{{ url_for('register') }}">Kayıt ol</a></p>
+</body>
+</html>

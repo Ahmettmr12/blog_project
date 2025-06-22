@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post['title'] }} - 2FA Blog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .meta {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ post['title'] }}</h1>
+    <div class="meta">
+        Yazar: {{ post['author'] }} <br>
+        Tarih: {{ post['created_at'] }}
+    </div>
+    <hr>
+    <p>{{ post['content'] }}</p>
+    <br>
+    <a href="{{ url_for('blog') }}">← Tüm Yazılara Dön</a>
+</body>
+</html>
